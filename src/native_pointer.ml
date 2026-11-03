@@ -4,42 +4,42 @@ include Ocaml_intrinsics.Native_pointer
 module Unboxed = struct
   external load_unboxed_nativeint
     :  t
-    -> nativeint#
+    -> nativeint_u
     = "caml_native_pointer_load_unboxed_nativeint_bytecode"
       "caml_native_pointer_load_unboxed_nativeint"
   [@@unboxed] [@@noalloc] [@@builtin] [@@no_effects]
 
   external store_unboxed_nativeint
     : ('a : word).
-    (t[@unboxed]) -> local_ ('a[@unboxed]) -> unit
+    (t[@unboxed]) -> ('a[@unboxed]) @ local -> unit
     = "caml_native_pointer_store_unboxed_nativeint_bytecode"
       "caml_native_pointer_store_unboxed_nativeint"
   [@@noalloc] [@@builtin] [@@no_coeffects]
 
   external load_unboxed_int64
     :  t
-    -> int64#
+    -> int64_u
     = "caml_native_pointer_load_unboxed_int64_bytecode"
       "caml_native_pointer_load_unboxed_int64"
   [@@unboxed] [@@noalloc] [@@builtin] [@@no_effects]
 
   external store_unboxed_int64
     : ('a : bits64).
-    (t[@unboxed]) -> local_ ('a[@unboxed]) -> unit
+    (t[@unboxed]) -> ('a[@unboxed]) @ local -> unit
     = "caml_native_pointer_store_unboxed_int64_bytecode"
       "caml_native_pointer_store_unboxed_int64"
   [@@noalloc] [@@builtin] [@@no_coeffects]
 
   external load_unboxed_int32
     :  t
-    -> int32#
+    -> int32_u
     = "caml_native_pointer_load_unboxed_int32_bytecode"
       "caml_native_pointer_load_unboxed_int32"
   [@@unboxed] [@@noalloc] [@@builtin] [@@no_effects]
 
   external store_unboxed_int32
     : ('a : bits32).
-    (t[@unboxed]) -> local_ ('a[@unboxed]) -> unit
+    (t[@unboxed]) -> ('a[@unboxed]) @ local -> unit
     = "caml_native_pointer_store_unboxed_int32_bytecode"
       "caml_native_pointer_store_unboxed_int32"
   [@@noalloc] [@@builtin] [@@no_coeffects]
@@ -53,7 +53,7 @@ module Unboxed = struct
 
   external store_unboxed_float
     : ('a : float64).
-    (t[@unboxed]) -> local_ ('a[@unboxed]) -> unit
+    (t[@unboxed]) -> ('a[@unboxed]) @ local -> unit
     = "caml_native_pointer_store_unboxed_float_bytecode"
       "caml_native_pointer_store_unboxed_float"
   [@@noalloc] [@@builtin] [@@no_coeffects]
